@@ -1,0 +1,20 @@
+﻿<Page
+    x:Class="ClientConvertisseurV1.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ClientConvertisseurV1"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <RelativePanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <TextBlock Name="Convertisseur" Text="Convertisseur" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="20"></TextBlock>
+        <TextBlock Name="Montant" Text="Montant en euros" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="Convertisseur"></TextBlock>
+        <TextBox Name="MontantValue" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="Montant"></TextBox>
+        <TextBlock Name="Devise" Text="Devise" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="MontantValue" Margin="0 20 0 0"></TextBlock>
+        <ComboBox x:Name="cbxDevise" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="Devise" ItemsSource="{Binding}" SelectedValuePath="Id"
+DisplayMemberPath="Nom" />
+        <Button Name="Convertir" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="cbxDevise" Margin="20">Convertir</Button>
+        <TextBox IsReadOnly="True" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="Convertir" Margin="20"></TextBox>
+    </RelativePanel>
+</Page>
