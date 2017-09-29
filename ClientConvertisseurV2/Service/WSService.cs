@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using ClientConvertisseurV1.Models;
+using ClientConvertisseurV2.Models;
 
 
-namespace ClientConvertisseurV1.Service
+namespace ClientConvertisseurV2.Service
 {
     /// <summary>
     /// Classe WSService - Service d'appels à l'application WS WSSservice
@@ -30,7 +30,7 @@ namespace ClientConvertisseurV1.Service
         {
             if (_ws == null)
             {
-                _http_client = new HttpClient(); 
+                _http_client = new HttpClient();
                 _http_client.BaseAddress = new Uri("http://localhost:1671/api/");
                 _http_client.DefaultRequestHeaders.Accept.Clear();
                 _http_client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));

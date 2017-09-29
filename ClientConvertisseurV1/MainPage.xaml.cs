@@ -1,18 +1,8 @@
 ﻿using ClientConvertisseurV1.Models;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 using ClientConvertisseurV1.Service;
 
 // Pour plus d'informations sur le modèle d'élément Page vierge, consultez la page https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -34,6 +24,16 @@ namespace ClientConvertisseurV1
         {
             var result = await WSService.GetInstance().getAllDevisesAsync("devise");
             this.cbxDevise.DataContext = new List<Devise>(result);
+        }
+
+        private void Convertir_Click(object sender, RoutedEventArgs e)
+        {
+            int intMontantValue;
+            double taux;
+            intMontantValue = Convert.ToInt32(this.montantValue.Text);
+            taux = ((Devise)this.cbxDevise.SelectedItem).Taux;
+
+            this.resultConvertisseur.Text = (intMontantValue * taux).ToString();
         }
     }
 }

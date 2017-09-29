@@ -1,4 +1,4 @@
-﻿namespace ClientConvertisseurV1.Models
+﻿namespace ClientConvertisseurV2.Models
 {
     /// <summary>
     /// Classe métier représentant une entité devise
